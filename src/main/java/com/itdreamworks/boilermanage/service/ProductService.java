@@ -46,7 +46,7 @@ public class ProductService {
         }else{
             productMapper.insertProduct(product);
             List<Integer> roleIdArray=product.getRoleIdArray();
-            if(roleIdArray.size()>0&&(!roleIdArray.contains(Product.ROLE_ADMIN))){
+            if(roleIdArray.size()>0&&(!roleIdArray.contains(Product.ROLE_ADMIN))&&(!roleIdArray.contains(9))){
                 User user=new User();
                 user.setRoleId(Product.ROLE_ADMIN);
                 user.setOrgType(product.getOrgType());

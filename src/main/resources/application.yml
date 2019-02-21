@@ -2,7 +2,7 @@ mybatis:
   type-aliases-package: com.itdreamworks.boilermanage.entity
 spring:
   profiles:
-    active: prod
+    active: dev
   cache:
     type: ehcache
     ehcache:
