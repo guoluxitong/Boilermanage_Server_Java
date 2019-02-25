@@ -12,6 +12,11 @@
 
 ### IntelliJ IDEA ###
 .idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 *.iws
 *.iml
 *.ipr
