@@ -69,4 +69,7 @@ public interface UserMapper {
 
     @Update("update bksrDB.Employee set Password=#{password} where Id = #{id}")
     int updateUserPass(User user);
+//    用户logo设置
+    @Update("update bksrDB.Employee set LogoUrl = #{logoUrl} where Id = #{id}")
+    int updateLogoUrl(Integer id);
 }

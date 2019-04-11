@@ -7,3 +7,5 @@ spring:
     type: ehcache
     ehcache:
       config: classpath:ehcache.xml
+  resources:
+    static-locations: classpath:static/,file:static/

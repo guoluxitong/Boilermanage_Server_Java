@@ -126,4 +126,9 @@ public class UserController {
         userMapper.updateUserPass(user);
         return ResultGenerator.genSuccessResult();
     }
+    @PostMapping("/editLogoUrl")
+    public Result editLogoUrl(@RequestParam int id){
+        userMapper.updateLogoUrl(id);
+        return ResultGenerator.genSuccessResult();
+    }
 }
