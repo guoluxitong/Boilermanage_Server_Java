@@ -23,4 +23,5 @@ spring:
       maximum-pool-size: 20
 server:
   port: 8091
-
+cas:
+  client-host-url: http://localhost:8091

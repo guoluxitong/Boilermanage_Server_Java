@@ -9,3 +9,7 @@ spring:
       config: classpath:ehcache.xml
   resources:
     static-locations: classpath:static/,file:static/
+cas:
+  server-url-prefix: http://server.cas.com:8080/cas
+  server-login-url: http://server.cas.com:8080/cas/login
+  validation-type: cas
