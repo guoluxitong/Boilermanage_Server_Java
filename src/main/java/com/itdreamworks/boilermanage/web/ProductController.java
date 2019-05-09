@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.itdreamworks.boilermanage.entity.Product;
 import com.itdreamworks.boilermanage.entity.ProductAboutModel;
+import com.itdreamworks.boilermanage.entity.ProductTypeAmountClass;
 import com.itdreamworks.boilermanage.entity.ProductUser;
 import com.itdreamworks.boilermanage.mapper.ProductAuxiliaryMachineInfoMapper;
 import com.itdreamworks.boilermanage.mapper.ProductMapper;
@@ -45,7 +46,13 @@ public class ProductController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
-
+    @GetMapping("/productTypeAmountByCondition")
+    public String getProductTypeAmountByCondition(int userId){
+        List<ProductTypeAmountClass> list = productMapper.getProductTypeAmountByUserId(userId);
+        Result res =ResultGenerator.genSuccessResult(list);
+        String str = res.toString();
+        return str;
+    }
     /**
      * 获得所分配的用户
      * @param productUser

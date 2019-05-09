@@ -9,10 +9,8 @@ import com.itdreamworks.boilermanage.service.BoilerCustomerService;
 import com.itdreamworks.boilermanage.util.Result;
 import com.itdreamworks.boilermanage.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.rmi.server.ExportException;
 import java.util.List;
 @RestController
 @RequestMapping(value = "/boilercustomer")
@@ -58,6 +56,7 @@ public class BoilerCustomerController {
     public Result editBoilerCustomer(@RequestBody BoilerCustomer boilerCustomer){
         if(boilerCustomer.getId()!=null){
             boilerCustomerMapper.updateBoilerCustomer(boilerCustomer);
+            boilerCustomerMapper.updateBoilerCustomerIntoProduct(boilerCustomer);
         }else{
             boilerCustomerMapper.insertBoilerCustomer(boilerCustomer);
         }
