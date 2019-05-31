@@ -7,6 +7,9 @@ import com.itdreamworks.boilermanage.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 资源
+ */
 @RestController
 @RequestMapping(value = "/resource")
 public class ResourceController {

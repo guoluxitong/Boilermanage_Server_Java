@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 锅炉厂
+ */
 @RestController
 @RequestMapping(value = "/customer")
 public class CustomerController {

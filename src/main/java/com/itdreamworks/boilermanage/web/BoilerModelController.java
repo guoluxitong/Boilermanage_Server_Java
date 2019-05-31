@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ *锅炉型号
+ */
 @RestController
 @RequestMapping(value = "/boilermodel")
 public class BoilerModelController {

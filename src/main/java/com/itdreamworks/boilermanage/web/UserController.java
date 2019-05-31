@@ -2,7 +2,9 @@ package com.itdreamworks.boilermanage.web;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.itdreamworks.boilermanage.entity.ProductUser;
 import com.itdreamworks.boilermanage.entity.User;
+import com.itdreamworks.boilermanage.mapper.ProductUserMapper;
 import com.itdreamworks.boilermanage.mapper.UserMapper;
 import com.itdreamworks.boilermanage.mapper.UserRoleMapper;
 import com.itdreamworks.boilermanage.service.UserService;
@@ -13,10 +15,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 企业员工
+ */
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
 
+    @Autowired
+    private ProductUserMapper pUserMapper;
     @Autowired
     private UserMapper userMapper;
 
@@ -42,6 +49,7 @@ public class UserController {
     @GetMapping("/userlistbyconditionandpage")
     public Result getUserListByConditionAndPage(User user, int pageNum, int pageSize){
         PageHelper.startPage(pageNum, pageSize);
+        System.out.println(user.getOrgId());
         List<User> list =userMapper.getUserListByCondition(user);
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
@@ -112,8 +120,9 @@ public class UserController {
      */
     @PostMapping(value = "/deleteuserbyid")
     public Result deleteUserById(@RequestParam int id){
-        userMapper.deleteUserById(id);
+        pUserMapper.deleteByUserId(id);
         userRoleMapper.deleteUserRoleByUserId(id);
+        userMapper.deleteUserById(id);
         return ResultGenerator.genSuccessResult();
     }
     /**

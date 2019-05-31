@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+/**
+ * 锅炉销售客户信息-最终用户
+ */
 @RestController
 @RequestMapping(value = "/boilercustomer")
 public class BoilerCustomerController {

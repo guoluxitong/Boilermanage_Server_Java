@@ -7,6 +7,9 @@ import com.itdreamworks.boilermanage.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 辅机小类信息
+ */
 @RestController
 @RequestMapping(value = "/auxiliarymachinesmallclass")
 public class AuxiliaryMachineSmallClassController {

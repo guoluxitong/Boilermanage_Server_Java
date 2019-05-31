@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 辅机大类信息
+ */
 @RestController
 @RequestMapping(value = "/auxiliarymachinelargeclass")
 public class AuxiliaryMachineLargeClassController {

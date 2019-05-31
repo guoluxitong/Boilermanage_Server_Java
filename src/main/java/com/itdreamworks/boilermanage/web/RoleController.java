@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 角色
+ */
 @RestController
 @RequestMapping(value = "/role")
 public class RoleController {

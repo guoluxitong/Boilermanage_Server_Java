@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 客户与资源关系
+ */
 @RestController
 @RequestMapping(value = "/customerresource")
 public class CustomerResourceController {

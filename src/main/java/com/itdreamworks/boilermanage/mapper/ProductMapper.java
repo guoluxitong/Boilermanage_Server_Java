@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProductMapper {
 
     @Select("<script>" +
-            "select DISTINCT pt.* from Product pt"+
+            "select pt.* from Product pt"+
             " left join Product_User pu on pu.ProductId=pt.Id "+
             "<where>"+
             " 1=1 "+

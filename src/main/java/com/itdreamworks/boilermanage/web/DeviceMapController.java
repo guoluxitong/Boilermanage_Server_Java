@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 设备地图
+ */
 @RestController
 @RequestMapping(value = "/deviceMap")
 public class DeviceMapController {

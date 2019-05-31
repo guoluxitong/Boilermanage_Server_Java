@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 产品信息
+ */
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -96,8 +99,10 @@ public class ProductController {
 
     @PostMapping("/insertmanyproductuser")
     public Result insertManyProductUser(@RequestBody Product product){
-        if(null!=product.getDeleteProductUserList()&&product.getDeleteProductUserList().size()>0){
-            productUserMapper.deleteManyUserByUserId(product.getDeleteProductUserList());
+        List<ProductUser> list = product.getDeleteProductUserList();
+        if(null!=product.getDeleteProductUserList()&&list.size()>0){
+            //productUserMapper.deleteManyUserByUserId(product.getDeleteProductUserList());
+            productUserMapper.deleteByProductAndUserList(list.get(0).getProductId(),product.getDeleteProductUserList());
         }
         if(null!=product.getSelectProductUserList()&&product.getSelectProductUserList().size()>0){
             productUserMapper.insertManyProductUser(product.getSelectProductUserList());
@@ -126,7 +131,7 @@ public class ProductController {
         productMapper.deleteProductById(id);
         ProductUser productUser=new ProductUser();
         productUser.setProductId(id);
-        productUserMapper.deleteProductUserByUserId(id);
+        productUserMapper.deleteByProductId(id);
         productAuxiliaryMachineInfoMapper.deleteProductAuxiliaryMachineInfoByProductId(id);
         return ResultGenerator.genSuccessResult();
     }

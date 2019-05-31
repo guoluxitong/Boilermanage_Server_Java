@@ -23,4 +23,10 @@ spring:
       maximum-pool-size: 20
 server:
   port: 8091
+logging:
+  level:
+    com:
+      itdreamworks:
+        boilermanage:
+          mapper: debug
 
