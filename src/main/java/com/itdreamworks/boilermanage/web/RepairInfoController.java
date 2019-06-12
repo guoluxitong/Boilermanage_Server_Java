@@ -39,13 +39,13 @@ public class RepairInfoController {
 
     public Result insertRepairInfo(@RequestBody Map<String,Object> RepairInfoList){
        RepairInfo repairInfo = new RepairInfo();
-       repairInfo.setRepairDate(RepairInfoList.get("repairDate").toString());
+       repairInfo.setRepairDatetime(RepairInfoList.get("repairDatetime").toString());
        repairInfo.setInputName(RepairInfoList.get("inputName").toString());
        repairInfo.setRepairContent(RepairInfoList.get("repairContent").toString());
        repairInfo.setProductId(Integer.parseInt(RepairInfoList.get("productId").toString()));
-       repairInfo.setUserId(Integer.parseInt(RepairInfoList.get("userId").toString()));
-       repairInfo.setRepairName(RepairInfoList.get("repairName").toString());
-       repairInfo.setInputDate(RepairInfoList.get("inputDate").toString());
+       repairInfo.setRepairUserId(Integer.parseInt(RepairInfoList.get("repairUserId").toString()));
+       repairInfo.setRepairUserName(RepairInfoList.get("repairUserName").toString());
+       repairInfo.setInputDatetime(RepairInfoList.get("inputDatetime").toString());
        RepairInfoMapper.insertRepairInfo(repairInfo);
         return ResultGenerator.genSuccessResult();
     }
@@ -53,13 +53,13 @@ public class RepairInfoController {
 
     public Result insertRepairUserInfo(@RequestBody Map<String,Object> RepairInfoList){
         RepairInfo repairInfo = new RepairInfo();
-        repairInfo.setRepairDate(RepairInfoList.get("repairDate").toString());
+        repairInfo.setRepairDatetime(RepairInfoList.get("repairDatetime").toString());
         repairInfo.setInputName(RepairInfoList.get("inputName").toString());
         repairInfo.setRepairContent(RepairInfoList.get("repairContent").toString());
         repairInfo.setProductId(Integer.parseInt(RepairInfoList.get("productId").toString()));
-        repairInfo.setUserId(Integer.parseInt(RepairInfoList.get("userId").toString()));
-        repairInfo.setRepairName(RepairInfoList.get("repairName").toString());
-        repairInfo.setInputDate(RepairInfoList.get("inputDate").toString());
+        repairInfo.setRepairUserId(Integer.parseInt(RepairInfoList.get("repairUserId").toString()));
+        repairInfo.setRepairUserName(RepairInfoList.get("repairUserName").toString());
+        repairInfo.setInputDatetime(RepairInfoList.get("inputDatetime").toString());
         RepairInfoMapper.insertRepairUserInfo(repairInfo);
         return ResultGenerator.genSuccessResult();
     }

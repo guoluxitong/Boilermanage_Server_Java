@@ -4,11 +4,56 @@ import java.io.Serializable;
 
 public class RepairInfo implements Serializable {
 
-    private Integer repairId,productId,userId;
+    private Integer Id;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getId() {
+        return Id;
     }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public Integer getRepairUserId() {
+        return repairUserId;
+    }
+
+    public void setRepairUserId(Integer repairUserId) {
+        this.repairUserId = repairUserId;
+    }
+
+    public String getRepairUserName() {
+        return repairUserName;
+    }
+
+    public void setRepairUserName(String repairUserName) {
+        this.repairUserName = repairUserName;
+    }
+
+    public String getRepairContent() {
+        return repairContent;
+    }
+
+    public void setRepairContent(String repairContent) {
+        this.repairContent = repairContent;
+    }
+
+    public String getRepairDatetime() {
+        return repairDatetime;
+    }
+
+    public void setRepairDatetime(String repairDatetime) {
+        this.repairDatetime = repairDatetime;
+    }
+
     public String getBoilerNo() {
         return boilerNo;
     }
@@ -17,12 +62,12 @@ public class RepairInfo implements Serializable {
         this.boilerNo = boilerNo;
     }
 
-    public String getInputDate() {
-        return inputDate;
+    public String getInputDatetime() {
+        return inputDatetime;
     }
 
-    public void setInputDate(String inputDate) {
-        this.inputDate = inputDate;
+    public void setInputDatetime(String inputDatetime) {
+        this.inputDatetime = inputDatetime;
     }
 
     public String getInputName() {
@@ -33,50 +78,8 @@ public class RepairInfo implements Serializable {
         this.inputName = inputName;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+    private Integer productId;
+    private Integer repairUserId;
+    private String repairUserName,repairContent,repairDatetime,boilerNo,inputDatetime,inputName;
 
-    private String repairName,repairContent,repairDate,boilerNo,inputDate,inputName;
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
-    public Integer getRepairId() {
-        return repairId;
-
-    }
-
-    public String getRepairName() {
-        return repairName;
-    }
-
-    public void setRepairId(Integer repairId) {
-        this.repairId = repairId;
-    }
-
-    public void setRepairName(String repairName) {
-        this.repairName = repairName;
-    }
-
-    public void setRepairContent(String repairContent) {
-        this.repairContent = repairContent;
-    }
-
-    public void setRepairDate(String repairDate) {
-        this.repairDate = repairDate;
-    }
-
-    public String getRepairContent() {
-        return repairContent;
-    }
-
-    public String getRepairDate() {
-        return repairDate;
-    }
 }

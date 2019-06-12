@@ -76,7 +76,7 @@ public class UserController {
     public Result getUserListByOrganizationTypeAndId(@RequestParam(name = "orgType") Integer orgType,@RequestParam(name = "orgId") Integer orgId){
         return ResultGenerator.genSuccessResult(userMapper.getUserListByOrganizationTypeAndId(orgType,orgId));
     }
-
+    
     /**
      * 编辑用户角色
      * @param user
