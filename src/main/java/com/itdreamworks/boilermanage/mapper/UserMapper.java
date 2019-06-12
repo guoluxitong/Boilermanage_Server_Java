@@ -57,7 +57,7 @@ public interface UserMapper {
 
     @Select("select em.Mobile from bksrDB.Employee em where Mobile=#{mobile}")
     String getUserMobileByMobile(@Param("mobile")String mobile);
-
+    
     @Insert("insert into bksrDB.Employee (OrgType,OrgId,Password,Mobile,Email,WeiXin,QQ,RealName,Status,LastLoginDatetime,Mark) values (#{orgType},#{orgId},#{password},#{mobile},#{email},#{weiXin},#{qQ},#{realName},#{status},#{lastLoginDatetime},#{mark})")
     void insertUser(User user);
 
