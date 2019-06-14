@@ -6,6 +6,9 @@ import com.itdreamworks.boilermanage.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 字典对应值
+ */
 @RestController
 @RequestMapping(value = "/dictionaryvalue")
 public class DictionaryValueController {

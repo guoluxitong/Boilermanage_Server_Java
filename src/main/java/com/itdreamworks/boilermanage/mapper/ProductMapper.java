@@ -1,6 +1,7 @@
 package com.itdreamworks.boilermanage.mapper;
 
 import com.itdreamworks.boilermanage.entity.Product;
+import com.itdreamworks.boilermanage.entity.ProductTypeAmountClass;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public interface ProductMapper {
 
     @Select("<script>" +
-            "select DISTINCT pt.* from Product pt"+
+            "select pt.* from Product pt"+
             " left join Product_User pu on pu.ProductId=pt.Id "+
             "<where>"+
             " 1=1 "+
@@ -45,6 +46,9 @@ public interface ProductMapper {
 
     @Select("select * from Product where BoilerNo=#{boilerNo} and ControllerNo=#{controllerNo}")
     Product getProductByBoilerNo(@Param("boilerNo") String boilerNo, @Param("controllerNo") String controllerNo);
+
+@Select("SELECT COUNT(*) AS Amount,case Medium WHEN 0 THEN '热水' when 1 then '蒸汽' when 2 then '导热油' when 3 then '热风' ELSE '真空' END as mediumType,case Fuel WHEN 0 THEN '燃油气' when 1 then '电' when 2 then '煤' when 3 then '生物质' ELSE '余热' END fuelType FROM (SELECT ControllerNo,Medium,Fuel FROM Product INNER JOIN Product_User ON Product.Id = Product_User.ProductId WHERE UserId = #{userId}) AS tb GROUP BY Medium,Fuel" )
+        List<ProductTypeAmountClass> getProductTypeAmountByUserId(@Param("userId")int userId);
 
     @Insert("INSERT into Product(BoilerNo,BoilerModelNumber,ControllerNo,TonnageNum,Medium,Fuel,IsSell,SaleDate,Longitude,Latitude,Province,City,District,Street,CreateDateTime,EditDateTime,BoilerCustomerId,BoilerCustomerName) " +
             " VALUES(#{boilerNo},#{boilerModelNumber},#{controllerNo},#{tonnageNum},#{medium},#{fuel},#{isSell},DATE_FORMAT(DATE_ADD(#{saleDate},INTERVAL 1 DAY), '%Y-%m-%d'),#{longitude},#{latitude},#{province},#{city}," +

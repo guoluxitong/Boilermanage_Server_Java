@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 企业信息管理
+ */
 @RestController
 @RequestMapping(value = "/enterprise")
 public class EnterpriseController {

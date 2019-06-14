@@ -33,6 +33,8 @@ public interface BoilerCustomerMapper {
 
     @Update("update Boiler_Customer set CustomerNo=#{customerNo},Name=#{name},Phone=#{phone},WeiXin=#{weiXin},Province=#{province},City=#{city},District=#{district} where Id = #{id}")
     void updateBoilerCustomer(BoilerCustomer boilerCustomer);
+    @Update("UPDATE Product SET BoilerCustomerName=#{name} where BoilerCustomerId = #{id}")
+    void updateBoilerCustomerIntoProduct(BoilerCustomer boilerCustomer);
 
     @Insert("insert into Boiler_Customer (CustomerNo,Name,Phone,WeiXin,Province,City,District,OrgType,OrgId) values (#{customerNo},#{name},#{phone},#{weiXin},#{province},#{city},#{district},#{orgType},#{orgId})")
     void insertBoilerCustomer(BoilerCustomer boilerCustomer);

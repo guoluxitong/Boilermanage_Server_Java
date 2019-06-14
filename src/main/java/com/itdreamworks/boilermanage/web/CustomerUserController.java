@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 客户与用户关系
+ */
 @RestController
 @RequestMapping(value = "/customeruser")
 public class CustomerUserController {

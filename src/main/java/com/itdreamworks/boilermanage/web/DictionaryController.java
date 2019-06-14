@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 字典信息
+ */
 @RestController
 @RequestMapping(value = "/dictionary")
 public class DictionaryController {
