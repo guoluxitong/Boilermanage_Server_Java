@@ -127,12 +127,11 @@ public class ProductController {
      * @return
      */
     @PostMapping( "/deleteproductbyid")
-    public Result deleteProductById(@RequestParam int id) {
-        productMapper.deleteProductById(id);
-        ProductUser productUser=new ProductUser();
-        productUser.setProductId(id);
-        productUserMapper.deleteByProductId(id);
-        productAuxiliaryMachineInfoMapper.deleteProductAuxiliaryMachineInfoByProductId(id);
-        return ResultGenerator.genSuccessResult();
+    public Result deleteProductById(@RequestParam int id,@RequestParam String controllerNo) {
+        int code = productService.deleteProduct(id,controllerNo);
+       if(0 == code)
+            return ResultGenerator.genSuccessResult();
+       else
+           return ResultGenerator.genFailResult(code,"删除失败");
     }
 }

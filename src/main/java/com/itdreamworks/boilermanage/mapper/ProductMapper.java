@@ -56,7 +56,7 @@ public interface ProductMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insertProduct(Product product);
 
-    @Update("update Product set BoilerNo=#{boilerNo},BoilerModelNumber=#{boilerModelNumber},ControllerNo=#{controllerNo}, TonnageNum=#{tonnageNum},Medium=#{medium}," +
+    @Update("update Product set BoilerNo=#{boilerNo},BoilerModelNumber=#{boilerModelNumber}, TonnageNum=#{tonnageNum},Medium=#{medium}," +
             "Fuel=#{fuel},IsSell=#{isSell},SaleDate=DATE_FORMAT(DATE_ADD(#{saleDate},INTERVAL 1 DAY), '%Y-%m-%d'),Longitude=#{longitude},Latitude=#{latitude},Province=#{province},City=#{city}," +
             "District=#{district},Street=#{street},EditDateTime=#{editDateTime},BoilerCustomerId=#{boilerCustomerId},BoilerCustomerName=#{boilerCustomerName}" +
             " where Id=#{id}")
