@@ -37,13 +37,23 @@ public class ProductService {
 
     @Autowired
     RoleMapper roleMapper;
+    @Autowired
+    DeviceMapper deviceMapper;
 
 
-    public void insertProductAndProductUser(Product product){
+    public int insertProductAndProductUser(Product product){
         if(product.getId()!=null){
             productMapper.updateProduct(product);
             productAuxiliaryMachineInfoMapper.deleteProductAuxiliaryMachineInfoByProductId(product.getId());
+            return 0;
         }else{
+            if(1 != deviceMapper.getDeviceCount(product.getControllerNo())){
+                return 1;
+            }
+            if(1 != deviceMapper.updateDeviceCustomerInfo(product.getControllerNo(),product.getOrgId()))
+            {
+                return 2;
+            }
             productMapper.insertProduct(product);
             List<Integer> roleIdArray=product.getRoleIdArray();
             if(roleIdArray.size()>0&&(!roleIdArray.contains(Product.ROLE_ADMIN))&&(!roleIdArray.contains(9))){
@@ -69,6 +79,7 @@ public class ProductService {
         if(product.getProductAuxiliaryMachineInfoList()!=null&&product.getProductAuxiliaryMachineInfoList().size()>0){
             productAuxiliaryMachineInfoMapper.insertManyProductAuxiliaryMachineInfo(product.getProductAuxiliaryMachineInfoList(),product.getId());
         }
+        return 0;
     }
 
     /**
@@ -137,5 +148,16 @@ public class ProductService {
             throw new RuntimeException(e.getMessage());
         }
         return ResultGenerator.genSuccessResult("共"+insertTotalNum+"条");
+    }
+
+    public int deleteProduct(int id,String controllerNo){
+        if(deviceMapper.clearDeviceCustomerInfo(controllerNo) > 1)
+            return 1;
+        productMapper.deleteProductById(id);
+        ProductUser productUser=new ProductUser();
+        productUser.setProductId(id);
+        productUserMapper.deleteByProductId(id);
+        productAuxiliaryMachineInfoMapper.deleteProductAuxiliaryMachineInfoByProductId(id);
+        return 0;
     }
 }

@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.94.5.49:3306/test_sdcsoft_db?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://47.94.5.49:3306/test_sdcsoft_db?useAffectedRows=true&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: dba_user
     password: Test@163.com
     hikari:
