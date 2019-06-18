@@ -1,6 +1,6 @@
 package com.itdreamworks.boilermanage.entity;
 
-public class UserProduct {
+public class TerminalProduct {
     private Integer id;
     private String boilerNo;            //锅炉编号
     private Integer boilerModelNumber;  //锅炉型号
