@@ -11,8 +11,8 @@ public interface TerminalProductMapper {
 @Select("select end_sdcsoft_db.terminal_product.* from end_sdcsoft_db.terminal_product where UserId=#{userId}")
     List<TerminalProduct> getTerminalProductListByUserId(Integer userId);
 
-    @Insert("INSERT into end_sdcsoft_db.terminal_product(BoilerName,ControllerNo,UserId) " +
-            " VALUES(#{boilerName},#{controllerNo},#{userId})")
+    @Insert("insert into end_sdcsoft_db.terminal_product(BoilerName,ControllerNo,UserId) " +
+            " values(#{boilerName},#{controllerNo},#{userId})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insertTerminalProduct(TerminalProduct terminalProduct);
 
