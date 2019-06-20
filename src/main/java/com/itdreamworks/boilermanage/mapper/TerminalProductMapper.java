@@ -15,7 +15,7 @@ public interface TerminalProductMapper {
             " VALUES(#{boilerName},#{controllerNo},#{userId})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insertTerminalProduct(TerminalProduct terminalProduct);
-    
+
     @Update("update end_sdcsoft_db.terminal_product set" +
             " BoilerName=#{boilerName},ControllerNo=#{controllerNo}, UserId=#{userId} where Id=#{id}")
     void updateTerminalProduct(TerminalProduct terminalProduct);

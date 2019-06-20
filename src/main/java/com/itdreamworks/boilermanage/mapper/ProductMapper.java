@@ -18,6 +18,9 @@ public interface ProductMapper {
             "<if test='userId != null'> "+
             " AND pu.UserId=#{userId} "+
             "</if>"+
+            "<if test='boilerCustomerName != null and boilerCustomerName.length>0'> "+
+            " AND BoilerCustomerName=#{boilerCustomerName} "+
+            "</if>"+
             "<if test='saleDate != null'> "+
             " AND SaleDate=DATE_FORMAT(DATE_ADD(#{saleDate},INTERVAL 1 DAY), '%Y-%m-%d') "+
             "</if>"+
