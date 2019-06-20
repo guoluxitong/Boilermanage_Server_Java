@@ -35,22 +35,15 @@ public class RepairInfoController {
         return  ResultGenerator.genSuccessResult(RepairInfoMapper.getRepairInfoListBydate( userId, startTime, endTime));
     }
 
+    /*  使用此方法方法  删除下个方法*/
    @PostMapping(value = "/insertrepairinfo")
-
-    public Result insertRepairInfo(@RequestBody Map<String,Object> RepairInfoList){
-       RepairInfo repairInfo = new RepairInfo();
-       repairInfo.setRepairDatetime(RepairInfoList.get("repairDatetime").toString());
-       repairInfo.setInputName(RepairInfoList.get("inputName").toString());
-       repairInfo.setRepairContent(RepairInfoList.get("repairContent").toString());
-       repairInfo.setProductId(Integer.parseInt(RepairInfoList.get("productId").toString()));
-       repairInfo.setRepairUserId(Integer.parseInt(RepairInfoList.get("repairUserId").toString()));
-       repairInfo.setRepairUserName(RepairInfoList.get("repairUserName").toString());
-       repairInfo.setInputDatetime(RepairInfoList.get("inputDatetime").toString());
+    public Result insertRepairInfo(@RequestBody RepairInfo repairInfo){
        RepairInfoMapper.insertRepairInfo(repairInfo);
         return ResultGenerator.genSuccessResult();
     }
-    @PostMapping(value = "/insertrepairuserinfo")
 
+    /*  方法重复  需删除*/
+    @PostMapping(value = "/insertrepairuserinfo")
     public Result insertRepairUserInfo(@RequestBody Map<String,Object> RepairInfoList){
         RepairInfo repairInfo = new RepairInfo();
         repairInfo.setRepairDatetime(RepairInfoList.get("repairDatetime").toString());
