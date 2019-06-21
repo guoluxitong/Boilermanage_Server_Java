@@ -22,7 +22,7 @@ public interface RepairInfoMapper {
             "and RepairDatetime between #{startTime} and #{endTime}")
     List<RepairInfo> getRepairInfoListBydate(@Param("userId") Integer userId, @Param("startTime") String startTime, @Param("endTime") String endTime);
 
-    @Select("select * from repair where productId = #{productId} and RepairDatetime between #{startTime} and #{endTime}")
+    @Select("select repair.*,product.ControllerNo from repair left join product on repair.productId=product.Id where productId = #{productId} and RepairDatetime between #{startTime} and #{endTime}")
     List<RepairInfo> getRepairInfoListByDate(@Param("productId") Integer productId, @Param("startTime") String startTime, @Param("endTime") String endTime);
 
     /*  方法重复  需删除*/
