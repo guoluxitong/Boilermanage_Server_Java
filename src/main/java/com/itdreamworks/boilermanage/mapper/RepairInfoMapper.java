@@ -12,13 +12,13 @@ import java.util.List;
 @Component
 public interface RepairInfoMapper {
 
-    @Select("select * from repair where productId = #{productId}")
+    @Select("select repair.*,product.ControllerNo from repair left join product on repair.productId=product.Id where productId = #{productId}")
     List<RepairInfo> getRepairInfoListByProductId(Integer productId);
 
-    @Select("select * from repair where RepairUserId = #{userId}")
+    @Select("select repair.*,product.ControllerNo from repair left join product on repair.productId=product.Id where RepairUserId = #{userId}")
     List<RepairInfo> getRepairInfoListByUserId(Integer userId);
 
-    @Select("select * from repair where RepairUserId = #{userId} " +
+    @Select("select repair.*,product.ControllerNo from repair left join product on repair.productId=product.Id where RepairUserId = #{userId} " +
             "and RepairDatetime between #{startTime} and #{endTime}")
     List<RepairInfo> getRepairInfoListBydate(@Param("userId") Integer userId, @Param("startTime") String startTime, @Param("endTime") String endTime);
 
@@ -31,13 +31,6 @@ public interface RepairInfoMapper {
             + "values "
             + "(#{repairDatetime},#{repairUserName},#{repairContent},#{productId},#{repairUserId},#{inputName},#{inputDatetime}) ")
     int insertRepairInfo(RepairInfo RepairInfo);
-
-   /*  方法重复  需删除*/
-    @Insert(
-            "insert into repair(RepairDatetime,RepairUserName,RepairContent,productId,RepairUserId,inputName,inputDatetime)"
-                    + "values "
-                    + "(#{repairDatetime},#{repairUserName},#{repairContent},#{productId},#{repairUserId},#{inputName},#{inputDatetime}) ")
-    int insertRepairUserInfo(RepairInfo RepairInfo);
 
     @Delete("delete from repair where Id=#{id}")
     void deleteRepairInfoByProductId(int id);

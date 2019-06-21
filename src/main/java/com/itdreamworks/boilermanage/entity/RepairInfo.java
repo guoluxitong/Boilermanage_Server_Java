@@ -78,8 +78,16 @@ public class RepairInfo implements Serializable {
         this.inputName = inputName;
     }
 
+    public String getControllerNo() {
+        return controllerNo;
+    }
+
+    public void setControllerNo(String controllerNo) {
+        this.controllerNo = controllerNo;
+    }
+
     private Integer productId;
     private Integer repairUserId;
-    private String repairUserName,repairContent,repairDatetime,boilerNo,inputDatetime,inputName;
+    private String repairUserName,repairContent,repairDatetime,boilerNo,inputDatetime,inputName,controllerNo;
 
 }

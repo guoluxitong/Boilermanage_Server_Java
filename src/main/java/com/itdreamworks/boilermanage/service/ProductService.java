@@ -45,15 +45,7 @@ public class ProductService {
         if(product.getId()!=null){
             productMapper.updateProduct(product);
             productAuxiliaryMachineInfoMapper.deleteProductAuxiliaryMachineInfoByProductId(product.getId());
-            return 0;
         }else{
-            if(1 != deviceMapper.getDeviceCount(product.getControllerNo())){
-                return 1;
-            }
-            if(1 != deviceMapper.updateDeviceCustomerInfo(product.getControllerNo(),product.getOrgId()))
-            {
-                return 2;
-            }
             productMapper.insertProduct(product);
             List<Integer> roleIdArray=product.getRoleIdArray();
             if(roleIdArray.size()>0&&(!roleIdArray.contains(Product.ROLE_ADMIN))&&(!roleIdArray.contains(9))){
