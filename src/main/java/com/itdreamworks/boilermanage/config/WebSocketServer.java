@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint(value = "/websocket/{userId}", configurator = WebSocketConfiguration.class)
-@Component
+//@ServerEndpoint(value = "/websocket/{userId}", configurator = WebSocketConfiguration.class)
+//@Component
 public class WebSocketServer {
 
     //当前登陆的用户map
