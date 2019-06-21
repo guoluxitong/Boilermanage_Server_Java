@@ -2,6 +2,7 @@ package com.itdreamworks.boilermanage.web;
 
 import com.itdreamworks.boilermanage.entity.User;
 import com.itdreamworks.boilermanage.mapper.UserMapper;
+import com.itdreamworks.boilermanage.service.UserService;
 import com.itdreamworks.boilermanage.util.Result;
 import com.itdreamworks.boilermanage.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class LoginController {
 
     @Autowired
     private UserMapper mapper;
+    @Autowired
+    private UserService userService;
 
     @PostMapping(value = "/signin")
     public Result signIn(@RequestParam(name = "loginid") String loginId, @RequestParam(name = "password") String password) {
@@ -27,6 +30,7 @@ public class LoginController {
             return ResultGenerator.genFailResult(0,"用户名或者密码输入错误");
         if (user.getPassword().equals(password)) {
             if (User.STATUS_ENABLE == user.getStatus()) {
+                user = userService.getLoginUserInfo(loginId);
                 return ResultGenerator.genSuccessResult(1,"success",user);
             } else {
                 return ResultGenerator.genFailResult(0,"您的用户账号未审核，请联系系统管理人员！");
