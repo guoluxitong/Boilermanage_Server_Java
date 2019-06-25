@@ -56,6 +56,8 @@ import static java.lang.Boolean.parseBoolean;
  * @since 3.0
  */
 
+
+
 public class ReAuthenticationFilter{// extends AbstractCasFilter {
 
     /**
